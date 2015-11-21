@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>RSC</title>
+	<link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/rsc.css">
+    
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $("#draggable").draggable({helper: 'clone',
+                stop: function(e,ui) {
+                    var mOffset=$($map.getDiv()).offset();
+                    var point=new google.maps.Point(
+                        ui.offset.left-mOffset.left+(ui.helper.width()/2),
+                        ui.offset.top-mOffset.top+(ui.helper.height())
+                    );
+                    var ll=overlay.getProjection().fromContainerPixelToLatLng(point);
+                    placeMarker(ll);
+                    }
+            });
+        });
+    </script>
+</head>
+<body>
+	<nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand page-scroll" href="#page-top">Novo</a>
+            </div>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a class="page-scroll" href="#home">Home</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#pravila">Rules</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#teams">Teams</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#features">Features</a>
+                    </li>
+                    <!--
+                    <li>
+                    	<a class="btn"><fb:login-button autologoutlink="true" size="large" scope="public_profile,email" onlogin="checkLoginState();">
+						</fb:login-button></a>
+                    </li>
+                    -->
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <section id="home">
+    	<div class="container-fluid">
+    		<div class="col-xs-2"></div>
+			<div class="container col-xs-8">
+				<div class="row map">
+					<div id="map"></div>
+				</div>
+			</div>
+			<div class="col-xs-2">
+                <div class="legenda">
+                    <div class="btn" id="drvo" onClick="funkcijaDrvo();">
+                        <img src="http://maps.google.com/mapfiles/kml/shapes/parks.png" class="img-responsive">
+                    </div>
+                    <div class="btn" id="kuca" onClick="funkcijaKuca();">
+                        <img src="http://maps.google.com/mapfiles/kml/shapes/homegardenbusiness.png" class="img-responsive">
+                    </div>
+                    <div class="btn" id="objekt" onClick="funkcijaObjekt();">
+                        <img src="http://maps.google.com/mapfiles/kml/shapes/triangle.png" class="img-responsive">
+                    </div>
+                    <div class="btn" id="zastava" onClick="funkcijaZastava();">
+                        <img src="http://maps.google.com/mapfiles/kml/shapes/flag.png" class="img-responsive">
+                    </div>    
+                </div>
+                         
+            </div>
+    	</div>
+    </section>
+    <!--
+    <section id="pravila">
+        <div class="container-fluid pravila">            
+                <div class="container">
+                    <div class="row forma">
+                        <div class="col-md-4 col-xs-7 text">
+                            Maksimal number of players
+                        </div>
+                        <div class="col-md-5 col-xs-5 input">
+                            <input type="number" name="quantity" >
+                        </div>
+                    </div>
+                    <div class="row forma">
+                        <div class="col-md-4 col-xs-7 text">
+                            Kill score
+                        </div>
+                        <div class="col-md-5 col-xs-5 input">
+                            <input type="number" name="quantity" >
+                        </div>
+                    </div>                   
+                    <div class="row forma">
+                        <div class="col-md-4 col-xs-7 text">
+                            Capture score
+                        </div>
+                        <div class="col-md-5 col-xs-5 input">
+                            <input type="number" name="quantity" >
+                        </div>
+                    </div>
+                    <div class="row forma">
+                        <div class="col-md-4 col-xs-7 text">
+                            Time in minutes
+                        </div>
+                        <div class="col-md-5 col-xs-5 input">
+                            <input type="number" name="quantity" >
+                        </div>
+                    </div>
+                    <div class="row done">
+                        <div class="col-md-6">
+                            <div class="post btn">
+                                    DONE
+                            </div>
+                        </div>
+                    </div>                   
+                </div>
+        </div>
+    </section>
+    -->
+        <section id="pravila">
+        <div class="container-fluid pravila">            
+                <div class="container">
+                    <div class="row forma">
+                        <div class="col-md-4 col-xs-7 text">
+                            Title
+                        </div>
+                        <div class="col-md-5 col-xs-5 input">
+                            <input type="text" name="naziv" >
+                        </div>
+                    </div>
+                    <div class="row forma">
+                        <div class="col-md-4 col-xs-12 text">
+                            <label class="radio-inline">
+                            <input type="radio" name="optradio" value="" checked="checked" style="float: left;">
+                                Deathmatch
+                            </label>
+                            <label class="radio-inline">
+                            <input type="radio" name="optradio" style="float: right;">
+                                Capture the flag
+                            </label>
+                        </div>
+                    </div>                   
+                    <div class="row forma">
+                        <div class="col-md-4 col-xs-7 text">
+                            Maximum number of players
+                        </div>
+                        <div class="col-md-5 col-xs-5 input">
+                            <input type="number" name="quantity" >
+                        </div>
+                    </div>
+                    <div class="row done">
+                        <div class="col-md-6">
+                            <div class="post btn">
+                                    NEXT
+                            </div>
+                        </div>
+                    </div>                   
+                </div>
+        </div>
+    </section>
+    <section id="teams">
+        <div class="container teams">
+            <div class="col-md-6">
+                <div class="col-xs-3">
+                    <div class="team1">
+                        Team 1
+                    </div>
+                </div>
+                <div class="col-xs-9">
+                    <input type="text">
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="col-xs-3">
+                    <div class="team2">
+                        Team 2
+                    </div>
+                </div>
+                <div class="col-xs-9">
+                    <input type="text">
+                </div>
+            </div>
+        </div>
+    </section>
+    <script src="js/rsc.js"></script>
+</body>
+</hmtl>
