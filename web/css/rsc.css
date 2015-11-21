@@ -3,6 +3,10 @@ body {
     width: 100%;
     height: 100%;
 }
+
+.form-control {
+    border-radius: 10px;
+}
 .navbar-default {
   background-color: #e74c3c;
   border-color: #c0392b;
@@ -71,10 +75,110 @@ body {
     background-color: #c0392b;
   }
 }
+#home{
+  padding-top: 30px;
+}
 .map{
   padding-top: 60px;
   overflow: auto;
 }
 #map{
   height: 400px;
+}
+.legenda{
+  padding-top: 30px;
+}
+img{
+  overflow: none;
+  min-width: 25px;
+}
+#draggable{
+  position:absolute;
+  top:10px, left:10px;
+  width: 30px;
+  height: 30px;
+  z-index:1000000000;
+}
+
+#login{
+  padding-top: 30px;
+}
+.form-login {
+    background-color: #EDEDED;
+    padding-top: 10px;
+    padding-bottom: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    border-radius: 15px;
+    border-color:#d2d2d2;
+    border-width: 5px;
+    box-shadow:0 1px 0 #cfcfcf;
+}
+
+h4 { 
+ border:0 solid #fff; 
+ border-bottom-width:1px;
+ padding-bottom:10px;
+ text-align: center;
+}
+.wrapper {
+    text-align: center;
+}
+#pravila{
+  padding-top: 60px;
+  padding-bottom: 30px;
+}
+.pravila{
+  padding-top: 30px;
+  background-color: #236A62;
+  padding-bottom: 30px;
+}
+.forma{
+  padding-top: 20px;
+}
+.text{
+  height: 50px;
+  text-align: left;
+  vertical-align: middle;
+  color: white;
+  font-size: 18px;
+  background-color: #00352F;
+  border-radius: 2px;
+  border-color: black; 
+}
+.input{
+  height: 50px;
+  text-align: left;
+  color: black;
+  overflow: hidden;
+}
+.done{
+  padding-top: 20px;
+}
+.post{
+  float: right;
+  background-color: #5D9834;
+  font-size: 30px;
+  height: 60px;
+  padding-left: 30px;
+  padding-right: 30px;
+  color: #C1DDAE;
+}
+#teams{
+  padding-top: 30px;
+}
+.teams{
+
+}
+.team1{
+  background-color: red;
+  font-size: 15px;
+  font-weight: bold;
+  height: 30px;
+}
+.team2{
+  background-color: blue;
+  font-size: 15px;
+  font-weight: bold;
+  height: 30px;
 }
