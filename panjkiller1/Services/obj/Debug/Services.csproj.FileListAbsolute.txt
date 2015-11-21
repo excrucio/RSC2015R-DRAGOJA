@@ -1,0 +1,13 @@
+D:\Projekti\VSProjekti\panjkiller1\Services\bin\Debug\Services.dll
+D:\Projekti\VSProjekti\panjkiller1\Services\bin\Debug\Services.pdb
+D:\Projekti\VSProjekti\panjkiller1\Services\bin\Debug\AutoMapper.dll
+D:\Projekti\VSProjekti\panjkiller1\Services\bin\Debug\Core.dll
+D:\Projekti\VSProjekti\panjkiller1\Services\bin\Debug\DTO.dll
+D:\Projekti\VSProjekti\panjkiller1\Services\bin\Debug\EntityFramework.dll
+D:\Projekti\VSProjekti\panjkiller1\Services\bin\Debug\Core.pdb
+D:\Projekti\VSProjekti\panjkiller1\Services\bin\Debug\DTO.pdb
+D:\Projekti\VSProjekti\panjkiller1\Services\bin\Debug\AutoMapper.xml
+D:\Projekti\VSProjekti\panjkiller1\Services\bin\Debug\EntityFramework.xml
+D:\Projekti\VSProjekti\panjkiller1\Services\obj\Debug\Services.csprojResolveAssemblyReference.cache
+D:\Projekti\VSProjekti\panjkiller1\Services\obj\Debug\Services.dll
+D:\Projekti\VSProjekti\panjkiller1\Services\obj\Debug\Services.pdb
