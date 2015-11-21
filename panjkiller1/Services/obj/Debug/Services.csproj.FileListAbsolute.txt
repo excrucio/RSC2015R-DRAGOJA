@@ -11,3 +11,16 @@ D:\Projekti\VSProjekti\panjkiller1\Services\bin\Debug\EntityFramework.xml
 D:\Projekti\VSProjekti\panjkiller1\Services\obj\Debug\Services.csprojResolveAssemblyReference.cache
 D:\Projekti\VSProjekti\panjkiller1\Services\obj\Debug\Services.dll
 D:\Projekti\VSProjekti\panjkiller1\Services\obj\Debug\Services.pdb
+D:\Projekti\GIT\RSC2015R-DRAGOJA\panjkiller1\Services\bin\Debug\Services.dll
+D:\Projekti\GIT\RSC2015R-DRAGOJA\panjkiller1\Services\bin\Debug\Services.pdb
+D:\Projekti\GIT\RSC2015R-DRAGOJA\panjkiller1\Services\bin\Debug\AutoMapper.dll
+D:\Projekti\GIT\RSC2015R-DRAGOJA\panjkiller1\Services\bin\Debug\Core.dll
+D:\Projekti\GIT\RSC2015R-DRAGOJA\panjkiller1\Services\bin\Debug\DTO.dll
+D:\Projekti\GIT\RSC2015R-DRAGOJA\panjkiller1\Services\bin\Debug\EntityFramework.dll
+D:\Projekti\GIT\RSC2015R-DRAGOJA\panjkiller1\Services\bin\Debug\Core.pdb
+D:\Projekti\GIT\RSC2015R-DRAGOJA\panjkiller1\Services\bin\Debug\DTO.pdb
+D:\Projekti\GIT\RSC2015R-DRAGOJA\panjkiller1\Services\bin\Debug\AutoMapper.xml
+D:\Projekti\GIT\RSC2015R-DRAGOJA\panjkiller1\Services\bin\Debug\EntityFramework.xml
+D:\Projekti\GIT\RSC2015R-DRAGOJA\panjkiller1\Services\obj\Debug\Services.csprojResolveAssemblyReference.cache
+D:\Projekti\GIT\RSC2015R-DRAGOJA\panjkiller1\Services\obj\Debug\Services.dll
+D:\Projekti\GIT\RSC2015R-DRAGOJA\panjkiller1\Services\obj\Debug\Services.pdb
