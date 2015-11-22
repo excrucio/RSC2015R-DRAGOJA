@@ -18,5 +18,9 @@ namespace Repositories
             _unitOfWork = unitOfWork;
         }
 
+        public Igrac GetByKorisnikId(int korisnikID)
+        {
+            return _unitOfWork.Igrac.Where(i => i.KorisnikId == korisnikID).SingleOrDefault();
+        }
     }
 }

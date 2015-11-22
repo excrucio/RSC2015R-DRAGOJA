@@ -23,5 +23,14 @@ namespace Repositories
         {
             return _unitOfWork.Mec.Where(m => m.Aktivan == true).ToList();
         }
+
+        public IEnumerable<Tim> GetTimoviUMecu(int mid)
+        {
+            var timovi = _unitOfWork.Mec.Where(m => m.Id == mid).Select(m => m.Tim_DrugiTimId);
+            timovi = timovi.Concat(_unitOfWork.Mec.Where(m => m.Id == mid).Select(m => m.Tim_PrviTimId));
+
+            return timovi;
+                         
+        }
     }
 }

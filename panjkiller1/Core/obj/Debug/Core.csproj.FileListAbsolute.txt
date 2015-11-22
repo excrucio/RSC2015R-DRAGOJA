@@ -21,3 +21,4 @@ D:\Projekti\GIT\RSC2015R-DRAGOJA\panjkiller1\Core\bin\Debug\EntityFramework.SqlS
 D:\Projekti\GIT\RSC2015R-DRAGOJA\panjkiller1\Core\bin\Debug\Newtonsoft.Json.xml
 D:\Projekti\GIT\RSC2015R-DRAGOJA\panjkiller1\Core\obj\Debug\Core.dll
 D:\Projekti\GIT\RSC2015R-DRAGOJA\panjkiller1\Core\obj\Debug\Core.pdb
+D:\Projekti\GIT\RSC2015R-DRAGOJA\panjkiller1\Core\obj\Debug\Core.csprojResolveAssemblyReference.cache

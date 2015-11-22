@@ -9,5 +9,6 @@ namespace Core.Repositories
 {
     public interface IIgracRepository : IRepository<Igrac, int>
     {
+        Igrac GetByKorisnikId(int korisnikID);
     }
 }

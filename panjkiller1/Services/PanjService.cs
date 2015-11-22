@@ -40,6 +40,65 @@ namespace Services
             _timPripadnostRepository = timPripadnostRepository;
         }
 
+        public IEnumerable<Tim> GetTimoviUMecu(int mid)
+        {
+            return _mecRepository.GetTimoviUMecu(mid);
+        }
+
+        public Igra GetIgra(int iid)
+        {
+            return _unitOfWork.Igra.Where(i => i.Id == iid).SingleOrDefault();
+        }
+
+        public Mec GetMec(int mid)
+        {
+            return _unitOfWork.Mec.Find(mid);
+        }
+
+        public ScoreDTO GetUserScores(string faceid)
+        {
+            return new ScoreDTO { wins=_unitOfWork.Igrac.Select(i => i.Pobjede).FirstOrDefault(),loses= _unitOfWork.Igrac.Select(i => i.Porazi).FirstOrDefault() };
+        }
+
+        public IEnumerable<Korisnik> GetIgracByMec(int mid)
+        {
+            var igraci1 = from m in _unitOfWork.Mec
+                         join t in _unitOfWork.Tim on m.PrviTimId equals t.Id
+                         join tp in _unitOfWork.TimPripadnost on t.Id equals tp.TimId
+                         join ig in _unitOfWork.Igrac on tp.IgracId equals ig.Id
+                         join ko in _unitOfWork.Korisnik on ig.KorisnikId equals ko.Id
+                         where m.Id == mid
+                         select ko;
+
+            var igraci2 = from m in _unitOfWork.Mec
+                          join t in _unitOfWork.Tim on m.DrugiTimId equals t.Id
+                          join tp in _unitOfWork.TimPripadnost on t.Id equals tp.TimId
+                          join ig in _unitOfWork.Igrac on tp.IgracId equals ig.Id
+                          join ko in _unitOfWork.Korisnik on ig.KorisnikId equals ko.Id
+                          where m.Id == mid
+                          select ko;
+
+            return igraci1.Concat(igraci2);
+        }
+
+        public Igra GetAktivnaIgra(int mid)
+        {
+            return _unitOfWork.Igra.Where(i => i.MecId == mid).SingleOrDefault();
+        }
+
+        public void DodajUTim(string faceID, int TID)
+        {
+            int IID = (from i in _unitOfWork.Igrac
+                      join k in _unitOfWork.Korisnik on i.KorisnikId equals k.Id
+                      where k.FaceId == faceID
+                      select i.Id).SingleOrDefault();
+
+            TimPripadnost tp = new TimPripadnost { IgracId=IID, TimId=TID };
+
+            _timPripadnostRepository.Add(tp);
+            _unitOfWork.Commit();
+        }
+
         public IEnumerable<MecDTO> GetAktivni()
         {
             var mecevi = _mecRepository.GetAktivni();
@@ -79,6 +138,24 @@ namespace Services
                 Debug.WriteLine(e);
                 _unitOfWork.RollbackChanges();
                 return -1;
+            }
+        }
+
+        public void UpdateIgrac(IgracDTO igracDTO)
+        {
+            try
+            {
+                Igrac oldIgrac = _igracRepository.GetByKorisnikId(igracDTO.korisnikID);
+
+                Mapper.Map<IgracDTO,Igrac>(igracDTO,oldIgrac);
+
+                _igracRepository.Update(oldIgrac);
+                _unitOfWork.Commit();
+            }
+            catch (Exception e)
+            {
+                System.Diagnostics.Debug.WriteLine(e);
+                _unitOfWork.RollbackChanges();
             }
         }
 

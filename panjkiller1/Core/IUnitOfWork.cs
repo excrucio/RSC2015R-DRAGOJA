@@ -10,6 +10,7 @@ namespace Core
     {
         IDbSet<Mec> Mec  { get; }
         IDbSet<Igra> Igra  {get;}
+        IDbSet<Igrac> Igrac { get; }
         IDbSet<Korisnik> Korisnik { get; }
         IDbSet<Prepreke> Prepreke { get; }
         IDbSet<Suci> Suci { get; }

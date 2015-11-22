@@ -31,16 +31,84 @@ namespace panjkiller1.Controllers
             var timPripadnostRepository = new TimPripadnostRepository(uow);
             var timRepository = new TimRepository(uow);
             var vrstaPreprekeRepository = new VrstaPreprekeRepository(uow);
-            _panjService = new PanjService(uow, mecRepository,timRepository,timPripadnostRepository,suciRepository,preprekeRepository,korisnikRepository, igraRepository, igracRepository);
+            _panjService = new PanjService(uow, mecRepository, timRepository, timPripadnostRepository, suciRepository, preprekeRepository, korisnikRepository, igraRepository, igracRepository);
         }
 
 
         #region gets
 
+        [HttpGet]
+        [Route("api/panj/igra/toggleAktiv/{iid}")]
+        public void SetAktivIgra(int iid)
+        {
+            try
+            {
+                _panjService.SetAktivIgra(iid);
+
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine(e);
+                Exception up = new HttpResponseException(HttpStatusCode.BadRequest);
+                throw up;
+            }
+        }
+
         [Route("api/panj/mec/aktivni")]
         public IEnumerable<MecDTO> GetAktivni()
         {
             return _panjService.GetAktivni();
+        }
+
+        [Route("api/panj/mec/timovi/{mid}")]
+        public IEnumerable<Tim> GetTimoviUMecu(int mid)
+        {
+            return _panjService.GetTimoviUMecu(mid);
+        }
+
+        [Route("api/panj/mec/{mid}")]
+        public Mec GetMec(int mid)
+        {
+            return _panjService.GetMec(mid);
+        }
+
+        [Route("api/panj/igra/{iid}")]
+        public Igra GetIgra(int iid)
+        {
+            return _panjService.GetIgra(iid);
+        }
+
+        [Route("api/panj/userscore/{uid}")]
+        public ScoreDTO GetUserScore(string faceid)
+        {
+            return _panjService.GetUserScores(faceid);
+        }
+
+        [Route("api/panj/korisnici/mec/{mid}")]
+        public IEnumerable<Korisnik> GetIgracFromMec(int mid)
+        {
+            return _panjService.GetIgracByMec(mid);
+        }
+
+        // GET /api/panj/igrac?faceID={faceID}&timID={timID}
+        [Route("api/panj/igrac/dodaj/")]
+        public void DodajUTim()
+        {
+            var req = Request.GetQueryNameValuePairs();
+            string faceID = req.Where(id => id.Key == "faceID")
+                                            .Select(q => q.Value).FirstOrDefault();
+            int TID = -1;
+            Int32.TryParse(Request.GetQueryNameValuePairs()
+                                            .Where(id => id.Key == "timID")
+                                            .Select(q => q.Value).FirstOrDefault(),
+                                          out TID);
+            _panjService.DodajUTim(faceID, TID);
+        }
+
+        [Route("api/panj/mec/igra/{mid}")]
+        public Igra GetAktivnaIgra(int mid)
+        {
+            return _panjService.GetAktivnaIgra(mid);
         }
 
         #endregion
@@ -66,6 +134,13 @@ namespace panjkiller1.Controllers
             }
         }
 
+        [HttpPost]
+        [Route("api/panj/igrac/update")]
+        public void UpdateIgrac([FromBody] string uIgr)
+        {
+            IgracDTO igracDTO = JsonConvert.DeserializeObject<IgracDTO>(uIgr);
+            _panjService.UpdateIgrac(igracDTO);
+        }
 
         [HttpPost]
         [Route("api/panj/igra/new")]
@@ -86,26 +161,6 @@ namespace panjkiller1.Controllers
                 throw up;
             }
         }
-
-        [HttpPost]
-        [Route("api/panj/igra/toggleAktiv")]
-        public void SetAktivIgra([FromBody] string iid)
-        {
-            try
-            {
-                int igraId = JsonConvert.DeserializeObject<int>(iid);
-
-                _panjService.SetAktivIgra(igraId);
-
-            }
-            catch (Exception e)
-            {
-                Debug.WriteLine(e);
-                Exception up = new HttpResponseException(HttpStatusCode.BadRequest);
-                throw up;
-            }
-        }
-
 
 
         // PUT api/values/5
