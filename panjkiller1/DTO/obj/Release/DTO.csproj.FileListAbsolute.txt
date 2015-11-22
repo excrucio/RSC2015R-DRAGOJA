@@ -1,0 +1,5 @@
+D:\Projekti\GIT\RSC2015R-DRAGOJA\panjkiller1\DTO\bin\Release\DTO.dll
+D:\Projekti\GIT\RSC2015R-DRAGOJA\panjkiller1\DTO\bin\Release\DTO.pdb
+D:\Projekti\GIT\RSC2015R-DRAGOJA\panjkiller1\DTO\obj\Release\DTO.csprojResolveAssemblyReference.cache
+D:\Projekti\GIT\RSC2015R-DRAGOJA\panjkiller1\DTO\obj\Release\DTO.dll
+D:\Projekti\GIT\RSC2015R-DRAGOJA\panjkiller1\DTO\obj\Release\DTO.pdb

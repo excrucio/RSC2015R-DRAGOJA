@@ -9,6 +9,7 @@ using Services;
 using Core;
 using Repositories;
 using Newtonsoft.Json;
+using System.Diagnostics;
 
 namespace panjkiller1.Controllers
 {
@@ -49,10 +50,13 @@ namespace panjkiller1.Controllers
             }
             catch (Exception e)
             {
+                Debug.WriteLine(e);
                 Exception up = new HttpResponseException(HttpStatusCode.BadRequest);
                 throw up;
             }
         }
+
+
 
         // PUT api/values/5
         public void Put(int id, [FromBody]string value)

@@ -1,0 +1,12 @@
+D:\Projekti\GIT\RSC2015R-DRAGOJA\panjkiller1\Core\bin\Release\Core.dll.config
+D:\Projekti\GIT\RSC2015R-DRAGOJA\panjkiller1\Core\bin\Release\Core.dll
+D:\Projekti\GIT\RSC2015R-DRAGOJA\panjkiller1\Core\bin\Release\Core.pdb
+D:\Projekti\GIT\RSC2015R-DRAGOJA\panjkiller1\Core\bin\Release\EntityFramework.dll
+D:\Projekti\GIT\RSC2015R-DRAGOJA\panjkiller1\Core\bin\Release\EntityFramework.SqlServer.dll
+D:\Projekti\GIT\RSC2015R-DRAGOJA\panjkiller1\Core\bin\Release\Newtonsoft.Json.dll
+D:\Projekti\GIT\RSC2015R-DRAGOJA\panjkiller1\Core\bin\Release\EntityFramework.xml
+D:\Projekti\GIT\RSC2015R-DRAGOJA\panjkiller1\Core\bin\Release\EntityFramework.SqlServer.xml
+D:\Projekti\GIT\RSC2015R-DRAGOJA\panjkiller1\Core\bin\Release\Newtonsoft.Json.xml
+D:\Projekti\GIT\RSC2015R-DRAGOJA\panjkiller1\Core\obj\Release\Core.csprojResolveAssemblyReference.cache
+D:\Projekti\GIT\RSC2015R-DRAGOJA\panjkiller1\Core\obj\Release\Core.dll
+D:\Projekti\GIT\RSC2015R-DRAGOJA\panjkiller1\Core\obj\Release\Core.pdb

@@ -120,3 +120,5 @@ D:\Projekti\GIT\RSC2015R-DRAGOJA\panjkiller1\panjkiller1\bin\AutoMapper.xml
 D:\Projekti\GIT\RSC2015R-DRAGOJA\panjkiller1\panjkiller1\obj\Debug\panjkiller1.csprojResolveAssemblyReference.cache
 D:\Projekti\GIT\RSC2015R-DRAGOJA\panjkiller1\panjkiller1\obj\Debug\panjkiller1.dll
 D:\Projekti\GIT\RSC2015R-DRAGOJA\panjkiller1\panjkiller1\obj\Debug\panjkiller1.pdb
+D:\Projekti\GIT\RSC2015R-DRAGOJA\panjkiller1\panjkiller1\bin\EntityFramework.SqlServer.dll
+D:\Projekti\GIT\RSC2015R-DRAGOJA\panjkiller1\panjkiller1\bin\EntityFramework.SqlServer.xml

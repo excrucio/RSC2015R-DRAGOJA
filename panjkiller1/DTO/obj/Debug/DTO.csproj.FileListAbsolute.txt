@@ -2,3 +2,7 @@ D:\Projekti\VSProjekti\panjkiller1\DTO\bin\Debug\DTO.dll
 D:\Projekti\VSProjekti\panjkiller1\DTO\bin\Debug\DTO.pdb
 D:\Projekti\VSProjekti\panjkiller1\DTO\obj\Debug\DTO.dll
 D:\Projekti\VSProjekti\panjkiller1\DTO\obj\Debug\DTO.pdb
+D:\Projekti\GIT\RSC2015R-DRAGOJA\panjkiller1\DTO\bin\Debug\DTO.dll
+D:\Projekti\GIT\RSC2015R-DRAGOJA\panjkiller1\DTO\bin\Debug\DTO.pdb
+D:\Projekti\GIT\RSC2015R-DRAGOJA\panjkiller1\DTO\obj\Debug\DTO.dll
+D:\Projekti\GIT\RSC2015R-DRAGOJA\panjkiller1\DTO\obj\Debug\DTO.pdb

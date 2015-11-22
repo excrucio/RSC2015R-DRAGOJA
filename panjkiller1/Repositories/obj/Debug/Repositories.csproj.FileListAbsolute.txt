@@ -10,3 +10,15 @@ D:\Projekti\VSProjekti\panjkiller1\Repositories\bin\Debug\EntityFramework.xml
 D:\Projekti\VSProjekti\panjkiller1\Repositories\bin\Debug\EntityFramework.SqlServer.xml
 D:\Projekti\VSProjekti\panjkiller1\Repositories\obj\Debug\Repositories.dll
 D:\Projekti\VSProjekti\panjkiller1\Repositories\obj\Debug\Repositories.pdb
+D:\Projekti\GIT\RSC2015R-DRAGOJA\panjkiller1\Repositories\bin\Debug\Repositories.dll.config
+D:\Projekti\GIT\RSC2015R-DRAGOJA\panjkiller1\Repositories\bin\Debug\Repositories.dll
+D:\Projekti\GIT\RSC2015R-DRAGOJA\panjkiller1\Repositories\bin\Debug\Repositories.pdb
+D:\Projekti\GIT\RSC2015R-DRAGOJA\panjkiller1\Repositories\bin\Debug\Core.dll
+D:\Projekti\GIT\RSC2015R-DRAGOJA\panjkiller1\Repositories\bin\Debug\EntityFramework.dll
+D:\Projekti\GIT\RSC2015R-DRAGOJA\panjkiller1\Repositories\bin\Debug\EntityFramework.SqlServer.dll
+D:\Projekti\GIT\RSC2015R-DRAGOJA\panjkiller1\Repositories\bin\Debug\Core.pdb
+D:\Projekti\GIT\RSC2015R-DRAGOJA\panjkiller1\Repositories\bin\Debug\EntityFramework.xml
+D:\Projekti\GIT\RSC2015R-DRAGOJA\panjkiller1\Repositories\bin\Debug\EntityFramework.SqlServer.xml
+D:\Projekti\GIT\RSC2015R-DRAGOJA\panjkiller1\Repositories\obj\Debug\Repositories.csprojResolveAssemblyReference.cache
+D:\Projekti\GIT\RSC2015R-DRAGOJA\panjkiller1\Repositories\obj\Debug\Repositories.dll
+D:\Projekti\GIT\RSC2015R-DRAGOJA\panjkiller1\Repositories\obj\Debug\Repositories.pdb
