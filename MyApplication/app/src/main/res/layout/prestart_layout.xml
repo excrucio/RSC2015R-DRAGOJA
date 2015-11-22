@@ -3,4 +3,55 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <ExpandableListView
+        android:id="@+id/eList"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <RadioGroup
+        android:id="@+id/radioGroup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Odabir tima: "/>
+
+        <RadioButton
+            android:id="@+id/redTeam"
+            android:layout_width="fill_parent"
+            android:layout_height="47dp"
+            android:text="Crveni"
+            android:gravity="center"
+            android:textColor="@android:color/white"
+            android:background="@android:color/holo_red_light"/>
+
+        <RadioButton
+            android:id="@+id/blueTeam"
+            android:layout_width="fill_parent"
+            android:layout_height="47dp"
+            android:text="Plavi"
+            android:gravity="center"
+            android:textColor="@android:color/white"
+            android:background="@android:color/holo_blue_light"/>
+
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/pravila"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="#236A62"
+        android:text="asdhjlkdhfldhfkldhjaskljhasbnvklhasdcklhasckliuhasdcluiadhldhausclasdhfkldhasfkldhasfkljasdcklhasdflhuwefhadlfkjhasdfkljhadhflladhsfklhasdf"
+        android:layout_marginTop="2dp"/>
+
+    <Button
+        android:id="@+id/ready"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="#236A62"
+        android:text="Spreman!"
+        android:layout_marginTop="2dp"/>
+
 </LinearLayout>

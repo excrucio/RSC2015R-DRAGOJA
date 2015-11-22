@@ -82,6 +82,8 @@
     });
   }
   */
+var matchID;
+var address = "http://www.fornax.cashandplay.com/api/panj";
 function Login(form) {
 username = new Array("u1","u2","u3","u4","u5","u6","u7","u8","u9","u10");
 password = new Array("p1","p2","p3","p4","p5","p6","p7","p8","p9","p10");
@@ -95,6 +97,39 @@ form.username.focus();
 }
 return true;
 }
+function validateInput() {
+    var naziv   = document.getElementById('naziv').value;
+    var maxBrojIgraca   = parseInt(document.getElementById('max').value);
+    var tim1 = document.getElementById('tim1').value;
+    var tim2 = document.getElementById('tim2').value;
+
+    if(!naziv  || !maxBrojIgraca || !tim1 || !tim2){
+        alert("Enter all parameters!");
+        return false;
+    }
+    var tip;
+    var selected = $("#radioDiv input[type='radio']:checked");
+    if (selected.length > 0) {
+        tip = selected.val();
+    }
+
+    var newMatch = {"id": -1, "naziv": naziv, "tip": tip, "maxBrojIgraca":maxBrojIgraca, "tim1":tim1, "tim2":tim2};
+    console.log(newMatch);
+    $.post(address + "/mec/new", {'':JSON.stringify(newMatch)})
+      .done(function(data, status, jqXHR) {
+        
+        console.log(jqXHR.responseText);
+        matchID = jqXHR.responseText;
+        console.log(jqXHR);
+        console.log(matchID);
+      })
+      .fail(function(err) {
+        
+        console.log(err.status + " - " +err.responseText);
+      });
+
+}
+
 /*
 function initialize() {
   var map = new google.maps.Map(document.getElementById('map'), {
@@ -131,24 +166,36 @@ function initialize() {
 
 }
 */
+
 var ikona;
+var preprekaID;
+var markers = [];
+var ID = -1;
+var igraID = -1;
 function funkcijaDrvo(){
-         ikona = 'https://maps.google.com/mapfiles/kml/shapes/parks.png';
+          preprekaID=1;
+          ikona = 'js/rsz_parks.png';
+
         };
 function funkcijaKuca(){
-         ikona = 'https://maps.google.com/mapfiles/kml/shapes/homegardenbusiness.png';
+          preprekaID = 2;
+         ikona = 'js/rsz_homegardenbusiness.png';
+         
         };
 function funkcijaObjekt(){
-         ikona = 'https://maps.google.com/mapfiles/kml/shapes/triangle.png';
+        preprekaID = 3;
+         ikona = 'js/rsz_triangle.png';
         };
 function funkcijaZastava(){
-         ikona = 'https://maps.google.com/mapfiles/kml/shapes/flag.png';
+          preprekaID = 4;
+         ikona = 'js/rsz_flag.png';
         };
 window.onload = function () {
     var mapOptions = {
         center: new google.maps.LatLng(46.3313572, 16.3250911),
         zoom: 18,
         mapTypeId: google.maps.MapTypeId.HYBRID,
+        streetViewControl: false,
         scaleControl: false,
         scrollwheel: false,
         zoomControl: true
@@ -183,14 +230,18 @@ window.onload = function () {
 
         //Determine the location where the user has clicked.
         var location = e.latLng;
-        
+        console.log(markers);
+
         //Create a marker and placed it on the map.
-        var marker = new google.maps.Marker({
+        var marker = new google.maps.Marker({            
+            draggable: true,
             position: location,
             icon: ikona,
-            map: map
+            map: map,
         });
- 
+        var geoDuljina = e.latLng.lat();
+        var geoSirina = e.latLng.lng();
+        markers.push({ID , igraID, preprekaID, geoDuljina, geoSirina});
         //Attach click event handler to the marker.
         google.maps.event.addListener(marker, "click", function (e) {
             var infoWindow = new google.maps.InfoWindow({

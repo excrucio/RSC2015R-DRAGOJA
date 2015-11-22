@@ -2,13 +2,22 @@ html,
 body {
     width: 100%;
     height: 100%;
+    background-image: url("cover2.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+    background-attachment: fixed;
+    font-family: Play;
 }
 
 .form-control {
     border-radius: 10px;
 }
 .navbar-default {
-  background-color: #e74c3c;
+  background-color: #236A62;
   border-color: #c0392b;
 }
 .navbar-default .navbar-brand {
@@ -75,6 +84,12 @@ body {
     background-color: #c0392b;
   }
 }
+span {
+  display: inline-block;
+  vertical-align: middle;
+}
+.grow { transition: all .2s ease-in-out; }
+.grow:hover { transform: scale(1.1); }
 #home{
   padding-top: 30px;
 }
@@ -87,6 +102,9 @@ body {
 }
 .legenda{
   padding-top: 30px;
+}
+.legenda > .btn > img{
+  max-height: 50px;
 }
 img{
   overflow: none;
@@ -138,19 +156,31 @@ h4 {
 }
 .text{
   height: 50px;
+  padding-top: 15px;
   text-align: left;
-  vertical-align: middle;
   color: white;
   font-size: 18px;
   background-color: #00352F;
   border-radius: 2px;
   border-color: black; 
 }
+#radioDiv{
+  height: 50px;
+  text-align: left;
+  color: white;
+  font-size: 18px;
+  background-color: #00352F;
+  border-radius: 2px;
+  border-color: black;
+}
 .input{
   height: 50px;
   text-align: left;
   color: black;
   overflow: hidden;
+}
+input{
+  overflow: auto;
 }
 .done{
   padding-top: 20px;
@@ -171,14 +201,39 @@ h4 {
 
 }
 .team1{
+  padding-top: 6px;
   background-color: red;
   font-size: 15px;
+  border-radius: 2px;
+  border-color: black;
   font-weight: bold;
   height: 30px;
+  text-align: center;
 }
 .team2{
+  padding-top: 6px;
   background-color: blue;
   font-size: 15px;
+  border-radius: 2px;
+  border-color: black;
   font-weight: bold;
   height: 30px;
+  text-align: center;
+  color: white;
+}
+@media screen and (max-width: 420px){
+  .text{
+  height: 50px;
+  padding-top: 15px;
+  text-align: left;
+  vertical-align: middle;
+  color: white;
+  font-size: 15px;
+  background-color: #00352F;
+  border-radius: 2px;
+  border-color: black; 
+  }
+  .radio-inline{
+    font-size: 15px;
+  }
 }
