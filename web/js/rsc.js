@@ -106,13 +106,20 @@ function validateInput() {
     if(!naziv  || !maxBrojIgraca || !tim1 || !tim2){
         alert("Enter all parameters!");
         return false;
-    }
+    }/*
+    if(naziv || maxBrojIgraca || tim1 || tim2){
+      function show(){document.getElementById('game').style.visibility = 'visible';}
+    }*/
+    else {document.getElementById('game').style.visibility = 'visible';
+          document.getElementById('match').style.visibility = 'hidden';          
+        }
     var tip;
     var selected = $("#radioDiv input[type='radio']:checked");
     if (selected.length > 0) {
         tip = selected.val();
     }
-
+    document.getElementById('game').style.visibility = 'visible';
+     document.getElementById('match').style.visibility = 'hidden';
     var newMatch = {"id": -1, "naziv": naziv, "tip": tip, "maxBrojIgraca":maxBrojIgraca, "tim1":tim1, "tim2":tim2};
     console.log(newMatch);
     $.post(address + "/mec/new", {'':JSON.stringify(newMatch)})
@@ -129,7 +136,56 @@ function validateInput() {
       });
 
 }
+var igraID;
+function validateInputDone(){
+    var id = -1;
+    var kill = document.getElementById('kill').value;
+    var capture = document.getElementById('capture').value;
+    var trajanje = document.getElementById('trajanje').value;
+    var aktivna = false;
+    if(!kill || !capture || !trajanje){
+      alert("Enter all parameters!");
+      return false;
+    }
+    else{
 
+    }
+    var newGame = {"id": -1,"mecID": matchID, "kill": kill, "capture": capture, "trajanje": trajanje, "aktivna": false, "prepreke": markers};
+    console.log(JSON.stringify(newGame));
+     $.post(address + "/igra/new", {'':JSON.stringify(newGame)})
+      .done(function(data, status, jqXHR) {
+        
+        console.log(jqXHR.responseText);
+        igraID = jqXHR.responseText;
+        console.log(jqXHR);
+        console.log(igraID);
+      })
+      .fail(function(err) {
+        
+        console.log(err.status + " - " +err.responseText);
+      });
+
+}
+function startingGame(){
+  $.get(address + "api/panj/igra/toggleAktiv/" + igraID);
+
+     
+}
+/*
+function validateInputStart(){
+    var id = -1;
+    var kill = document.getElementById('kill').value;
+    var capture = document.getElementById('capture').value;
+    var trajanje = document.getElementById('trajanje').value;
+    var aktivna = false;
+    if(!kill || !capture || !trajanje){
+      alert("Enter all parameters!");
+      return false;
+    }
+    var newGame = {"id": -1,"igraID": igraID, "kill": kill, "capture": capture, "trajanje": trajanje, "aktivna": false};
+    console.log(newGame);
+}
+*/
 /*
 function initialize() {
   var map = new google.maps.Map(document.getElementById('map'), {
