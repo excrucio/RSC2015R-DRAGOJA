@@ -6,7 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>RSC</title>
 	<link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="css/animate.css" type="text/css">
     <!--
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
     -->
@@ -16,6 +18,7 @@
     <script src="js/jquery-ui.min.js"></script>
     
     <link rel="stylesheet" type="text/css" href="css/rsc.css">
+    <link src="js/rsc.js">
     <!--
     <script type="text/javascript">
         $(document).ready(function() {
@@ -148,7 +151,7 @@
         <section id="pravila">
         <div class="container-fluid pravila">            
                 <div class="container">
-                    <div class="col-md-6">
+                    <div class="col-md-6" id="mec">
                         <div class="row forma">
                             <div class="col-md-5 col-xs-7 text">
                                 <span>Title</span>
@@ -193,17 +196,66 @@
                                 <input type="text" name="tim2" id="tim2" value="" >
                             </div>
                         </div>
-                        <div class="row done">
-                            <div class="col-md-6">
-                                <div class="post btn grow" onclick="return validateInput();">
-                                    NEXT
+                        <div class="row next">
+                            <div class="col-xs-3"></div>
+                            <div class="col-xs-6">
+                                <div class="post btn grow" id="match" onclick="return validateInput();">
+                                    CREATE MATCH
                                 </div>
                             </div>
+                            <div class="col-xs-3"></div>
                         </div>
                     </div>
-                    <div class="col-md-6">
-                        
+                    <div class="col-md-6" id="game">
+                        <div class="row forma">
+                            <div class="col-md-5 col-xs-7 text">
+                                Kill score
+                            </div>
+                            <div class="col-md-7 col-xs-5 input">
+                                <input type="number" name="kill"  id="kill" min="0" step="1">
+                            </div>
+                        </div>
+                        <div class="row forma">
+                            <div class="col-md-5 col-xs-7 text">
+                                Capture score
+                            </div>
+                            <div class="col-md-7 col-xs-5 input">
+                                <input type="number" name="capture"  id="capture" min="0" step="1">
+                            </div>
+                        </div>
+                        <div class="row forma">
+                            <div class="col-md-5 col-xs-7 text">
+                                Time (in minutes)
+                            </div>
+                            <div class="col-md-7 col-xs-5 input">
+                                <input type="number" name="trajanje"  id="trajanje" min="0" step="1">
+                            </div>
+                        </div>
+                        <div class="row next">
+                            <div class="col-xs-3"></div>
+                            <div class="col-xs-6">
+                                <div class="post btn grow" onclick="return validateInputDone();">
+                                CREATE GAME
+                                </div>
+                            </div>
+                            <div class="col-xs-3"></div>
+                            
+                        </div>
+                        <div class="row next">
+                            <div class="start btn grow" onclick="startingGame();"> START GAME </div>
+                        </div>
                     </div>
+                    <!--
+                    <div class="row next">
+                        <div class="col-xs-3"></div>
+                        <div class="col-xs-6">
+                            <div class="zapocni btn grow" onclick="return validateInputStart();">
+                                Start battle!
+                            </div>
+                        </div>
+                        <div class="col-xs-3"></div>
+                    </div>
+                    -->
                                        
                 </div>
         </div>
