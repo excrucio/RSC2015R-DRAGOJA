@@ -28,6 +28,9 @@ namespace Services.Configuration
             Mapper.Initialize(cfg =>
             {
                 cfg.AddProfile(new MecProfile());
+                cfg.AddProfile(new NewMecProfile());
+                cfg.AddProfile(new IgraProfile());
+                cfg.AddProfile(new newIgraProfile());
 
             });
         }

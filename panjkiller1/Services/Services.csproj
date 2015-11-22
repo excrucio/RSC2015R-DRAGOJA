@@ -47,7 +47,10 @@
   <ItemGroup>
     <Compile Include="Configuration\AutoMapperConfig.cs" />
     <Compile Include="Configuration\BaseConfiguration.cs" />
+    <Compile Include="Configuration\IgraProfile.cs" />
     <Compile Include="Configuration\MecProfile.cs" />
+    <Compile Include="Configuration\newIgraProfile.cs" />
+    <Compile Include="Configuration\NewMecProfile.cs" />
     <Compile Include="PanjService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

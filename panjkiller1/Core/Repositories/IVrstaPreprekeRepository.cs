@@ -9,7 +9,6 @@ namespace Core.Repositories
 {
     public interface IVrstaPreprekeRepository : IRepository<VrstaPrepreke, int>
     {
-        IEnumerable<VrstaPrepreke> GetVrste();
-        VrstaPrepreke GetVrstuPrepreke(int VPID);
+
     }
 }

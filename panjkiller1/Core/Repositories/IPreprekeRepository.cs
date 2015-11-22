@@ -7,7 +7,7 @@ using Core;
 
 namespace Core.Repositories
 {
-    public interface IPreprekeRepository : IRepository<Igra, int>
+    public interface IPreprekeRepository : IRepository<Prepreke, int>
     {
     }
 }

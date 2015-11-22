@@ -419,20 +419,17 @@ namespace Core
     public class Igra
     {
         public int Id { get; set; } // ID (Primary key)
-        public int? PrviTimId { get; set; } // prviTimID
-        public int? DrugiTimId { get; set; } // drugiTimID
         public int MecId { get; set; } // mecID
         public int? KillScore { get; set; } // killScore
         public int? CaptureScore { get; set; } // captureScore
         public int? Trajanje { get; set; } // trajanje
+        public bool? Aktivna { get; set; } // aktivna
 
         // Reverse navigation
-        public virtual ICollection<Prepreke> Prepreke { get; set; } // prepreke.FK__prepreke__igraID__47DBAE45
+        public virtual ICollection<Prepreke> Prepreke { get; set; } // prepreke.FK__prepreke__igraID__6A30C649
 
         // Foreign keys
-        public virtual Mec Mec { get; set; } // FK__igra__mecID__4316F928
-        public virtual Tim Tim_DrugiTimId { get; set; } // FK__igra__drugiTimID__44FF419A
-        public virtual Tim Tim_PrviTimId { get; set; } // FK__igra__prviTimID__440B1D61
+        public virtual Mec Mec { get; set; } // FK__igra__mecID__5441852A
         
         public Igra()
         {
@@ -445,12 +442,12 @@ namespace Core
     {
         public int Id { get; set; } // ID (Primary key)
         public bool? Mrtav { get; set; } // mrtav
-        public decimal GeoDuljina { get; set; } // geoDuljina
-        public decimal GeoSirina { get; set; } // geoSirina
+        public string GeoDuljina { get; set; } // geoDuljina
+        public string GeoSirina { get; set; } // geoSirina
         public int KorisnikId { get; set; } // korisnikID
 
         // Foreign keys
-        public virtual Korisnik Korisnik { get; set; } // FK__igrac__korisnikI__35BCFE0A
+        public virtual Korisnik Korisnik { get; set; } // FK__igrac__korisnikI__6754599E
     }
 
     // korisnik
@@ -461,8 +458,8 @@ namespace Core
         public string FaceId { get; set; } // faceID
 
         // Reverse navigation
-        public virtual ICollection<Igrac> Igrac { get; set; } // igrac.FK__igrac__korisnikI__35BCFE0A
-        public virtual ICollection<TimPripadnost> TimPripadnost { get; set; } // timPripadnost.FK__timPripad__koris__2F10007B
+        public virtual ICollection<Igrac> Igrac { get; set; } // igrac.FK__igrac__korisnikI__6754599E
+        public virtual ICollection<TimPripadnost> TimPripadnost { get; set; } // timPripadnost.FK__timPripad__koris__59FA5E80
         
         public Korisnik()
         {
@@ -481,9 +478,15 @@ namespace Core
         public bool? Aktivan { get; set; } // aktivan
         public bool? Spreman { get; set; } // spreman
         public int MaxBrojIgraca { get; set; } // maxBrojIgraca
+        public int? PrviTimId { get; set; } // prviTimID
+        public int? DrugiTimId { get; set; } // drugiTimID
 
         // Reverse navigation
-        public virtual ICollection<Igra> Igra { get; set; } // igra.FK__igra__mecID__4316F928
+        public virtual ICollection<Igra> Igra { get; set; } // igra.FK__igra__mecID__5441852A
+
+        // Foreign keys
+        public virtual Tim Tim_DrugiTimId { get; set; } // FK__mec__drugiTimID__5165187F
+        public virtual Tim Tim_PrviTimId { get; set; } // FK__mec__prviTimID__5070F446
         
         public Mec()
         {
@@ -497,12 +500,12 @@ namespace Core
         public int Id { get; set; } // ID (Primary key)
         public int IgraId { get; set; } // igraID
         public int PreprekaId { get; set; } // preprekaID
-        public decimal GeoDuljina { get; set; } // geoDuljina
-        public decimal GeoSirina { get; set; } // geoSirina
+        public string GeoDuljina { get; set; } // geoDuljina
+        public string GeoSirina { get; set; } // geoSirina
 
         // Foreign keys
-        public virtual Igra Igra { get; set; } // FK__prepreke__igraID__47DBAE45
-        public virtual VrstaPrepreke VrstaPrepreke { get; set; } // FK__prepreke__prepre__48CFD27E
+        public virtual Igra Igra { get; set; } // FK__prepreke__igraID__6A30C649
+        public virtual VrstaPrepreke VrstaPrepreke { get; set; } // FK__prepreke__prepre__6B24EA82
     }
 
     // suci
@@ -529,16 +532,17 @@ namespace Core
     {
         public int Id { get; set; } // ID (Primary key)
         public string Ime { get; set; } // ime
+        public int? Bodovi { get; set; } // bodovi
 
         // Reverse navigation
-        public virtual ICollection<Igra> Igra_DrugiTimId { get; set; } // igra.FK__igra__drugiTimID__44FF419A
-        public virtual ICollection<Igra> Igra_PrviTimId { get; set; } // igra.FK__igra__prviTimID__440B1D61
-        public virtual ICollection<TimPripadnost> TimPripadnost { get; set; } // timPripadnost.FK__timPripad__timID__2E1BDC42
+        public virtual ICollection<Mec> Mec_DrugiTimId { get; set; } // mec.FK__mec__drugiTimID__5165187F
+        public virtual ICollection<Mec> Mec_PrviTimId { get; set; } // mec.FK__mec__prviTimID__5070F446
+        public virtual ICollection<TimPripadnost> TimPripadnost { get; set; } // timPripadnost.FK__timPripad__timID__59063A47
         
         public Tim()
         {
-            Igra_DrugiTimId = new List<Igra>();
-            Igra_PrviTimId = new List<Igra>();
+            Mec_DrugiTimId = new List<Mec>();
+            Mec_PrviTimId = new List<Mec>();
             TimPripadnost = new List<TimPripadnost>();
         }
     }
@@ -551,8 +555,8 @@ namespace Core
         public int TimId { get; set; } // timID
 
         // Foreign keys
-        public virtual Korisnik Korisnik { get; set; } // FK__timPripad__koris__2F10007B
-        public virtual Tim Tim { get; set; } // FK__timPripad__timID__2E1BDC42
+        public virtual Korisnik Korisnik { get; set; } // FK__timPripad__koris__59FA5E80
+        public virtual Tim Tim { get; set; } // FK__timPripad__timID__59063A47
     }
 
     // vrstaPrepreke
@@ -563,7 +567,7 @@ namespace Core
         public string Ime { get; set; } // ime
 
         // Reverse navigation
-        public virtual ICollection<Prepreke> Prepreke { get; set; } // prepreke.FK__prepreke__prepre__48CFD27E
+        public virtual ICollection<Prepreke> Prepreke { get; set; } // prepreke.FK__prepreke__prepre__6B24EA82
         
         public VrstaPrepreke()
         {
@@ -589,17 +593,14 @@ namespace Core
             HasKey(x => x.Id);
 
             Property(x => x.Id).HasColumnName("ID").IsRequired().HasColumnType("int").HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
-            Property(x => x.PrviTimId).HasColumnName("prviTimID").IsOptional().HasColumnType("int");
-            Property(x => x.DrugiTimId).HasColumnName("drugiTimID").IsOptional().HasColumnType("int");
             Property(x => x.MecId).HasColumnName("mecID").IsRequired().HasColumnType("int");
             Property(x => x.KillScore).HasColumnName("killScore").IsOptional().HasColumnType("int");
             Property(x => x.CaptureScore).HasColumnName("captureScore").IsOptional().HasColumnType("int");
             Property(x => x.Trajanje).HasColumnName("trajanje").IsOptional().HasColumnType("int");
+            Property(x => x.Aktivna).HasColumnName("aktivna").IsOptional().HasColumnType("bit");
 
             // Foreign keys
-            HasOptional(a => a.Tim_DrugiTimId).WithMany(b => b.Igra_DrugiTimId).HasForeignKey(c => c.DrugiTimId); // FK__igra__drugiTimID__44FF419A
-            HasOptional(a => a.Tim_PrviTimId).WithMany(b => b.Igra_PrviTimId).HasForeignKey(c => c.PrviTimId); // FK__igra__prviTimID__440B1D61
-            HasRequired(a => a.Mec).WithMany(b => b.Igra).HasForeignKey(c => c.MecId); // FK__igra__mecID__4316F928
+            HasRequired(a => a.Mec).WithMany(b => b.Igra).HasForeignKey(c => c.MecId); // FK__igra__mecID__5441852A
         }
     }
 
@@ -618,12 +619,12 @@ namespace Core
 
             Property(x => x.Id).HasColumnName("ID").IsRequired().HasColumnType("int").HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
             Property(x => x.Mrtav).HasColumnName("mrtav").IsOptional().HasColumnType("bit");
-            Property(x => x.GeoDuljina).HasColumnName("geoDuljina").IsRequired().HasColumnType("decimal");
-            Property(x => x.GeoSirina).HasColumnName("geoSirina").IsRequired().HasColumnType("decimal");
+            Property(x => x.GeoDuljina).HasColumnName("geoDuljina").IsRequired().IsUnicode(false).HasColumnType("varchar").HasMaxLength(100);
+            Property(x => x.GeoSirina).HasColumnName("geoSirina").IsRequired().IsUnicode(false).HasColumnType("varchar").HasMaxLength(100);
             Property(x => x.KorisnikId).HasColumnName("korisnikID").IsRequired().HasColumnType("int");
 
             // Foreign keys
-            HasRequired(a => a.Korisnik).WithMany(b => b.Igrac).HasForeignKey(c => c.KorisnikId); // FK__igrac__korisnikI__35BCFE0A
+            HasRequired(a => a.Korisnik).WithMany(b => b.Igrac).HasForeignKey(c => c.KorisnikId); // FK__igrac__korisnikI__6754599E
         }
     }
 
@@ -664,6 +665,12 @@ namespace Core
             Property(x => x.Aktivan).HasColumnName("aktivan").IsOptional().HasColumnType("bit");
             Property(x => x.Spreman).HasColumnName("spreman").IsOptional().HasColumnType("bit");
             Property(x => x.MaxBrojIgraca).HasColumnName("maxBrojIgraca").IsRequired().HasColumnType("int");
+            Property(x => x.PrviTimId).HasColumnName("prviTimID").IsOptional().HasColumnType("int");
+            Property(x => x.DrugiTimId).HasColumnName("drugiTimID").IsOptional().HasColumnType("int");
+
+            // Foreign keys
+            HasOptional(a => a.Tim_DrugiTimId).WithMany(b => b.Mec_DrugiTimId).HasForeignKey(c => c.DrugiTimId); // FK__mec__drugiTimID__5165187F
+            HasOptional(a => a.Tim_PrviTimId).WithMany(b => b.Mec_PrviTimId).HasForeignKey(c => c.PrviTimId); // FK__mec__prviTimID__5070F446
         }
     }
 
@@ -683,12 +690,12 @@ namespace Core
             Property(x => x.Id).HasColumnName("ID").IsRequired().HasColumnType("int").HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
             Property(x => x.IgraId).HasColumnName("igraID").IsRequired().HasColumnType("int");
             Property(x => x.PreprekaId).HasColumnName("preprekaID").IsRequired().HasColumnType("int");
-            Property(x => x.GeoDuljina).HasColumnName("geoDuljina").IsRequired().HasColumnType("decimal");
-            Property(x => x.GeoSirina).HasColumnName("geoSirina").IsRequired().HasColumnType("decimal");
+            Property(x => x.GeoDuljina).HasColumnName("geoDuljina").IsRequired().IsUnicode(false).HasColumnType("varchar").HasMaxLength(100);
+            Property(x => x.GeoSirina).HasColumnName("geoSirina").IsRequired().IsUnicode(false).HasColumnType("varchar").HasMaxLength(100);
 
             // Foreign keys
-            HasRequired(a => a.Igra).WithMany(b => b.Prepreke).HasForeignKey(c => c.IgraId); // FK__prepreke__igraID__47DBAE45
-            HasRequired(a => a.VrstaPrepreke).WithMany(b => b.Prepreke).HasForeignKey(c => c.PreprekaId); // FK__prepreke__prepre__48CFD27E
+            HasRequired(a => a.Igra).WithMany(b => b.Prepreke).HasForeignKey(c => c.IgraId); // FK__prepreke__igraID__6A30C649
+            HasRequired(a => a.VrstaPrepreke).WithMany(b => b.Prepreke).HasForeignKey(c => c.PreprekaId); // FK__prepreke__prepre__6B24EA82
         }
     }
 
@@ -747,6 +754,7 @@ namespace Core
 
             Property(x => x.Id).HasColumnName("ID").IsRequired().HasColumnType("int").HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
             Property(x => x.Ime).HasColumnName("ime").IsRequired().IsUnicode(false).HasColumnType("varchar").HasMaxLength(100);
+            Property(x => x.Bodovi).HasColumnName("bodovi").IsOptional().HasColumnType("int");
         }
     }
 
@@ -768,8 +776,8 @@ namespace Core
             Property(x => x.TimId).HasColumnName("timID").IsRequired().HasColumnType("int");
 
             // Foreign keys
-            HasRequired(a => a.Korisnik).WithMany(b => b.TimPripadnost).HasForeignKey(c => c.KorisnikId); // FK__timPripad__koris__2F10007B
-            HasRequired(a => a.Tim).WithMany(b => b.TimPripadnost).HasForeignKey(c => c.TimId); // FK__timPripad__timID__2E1BDC42
+            HasRequired(a => a.Korisnik).WithMany(b => b.TimPripadnost).HasForeignKey(c => c.KorisnikId); // FK__timPripad__koris__59FA5E80
+            HasRequired(a => a.Tim).WithMany(b => b.TimPripadnost).HasForeignKey(c => c.TimId); // FK__timPripad__timID__59063A47
         }
     }
 

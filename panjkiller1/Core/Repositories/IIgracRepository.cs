@@ -7,7 +7,7 @@ using Core;
 
 namespace Core.Repositories
 {
-    public interface IIgracRepository : IRepository<Igra, int>
+    public interface IIgracRepository : IRepository<Igrac, int>
     {
     }
 }

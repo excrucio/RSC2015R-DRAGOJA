@@ -7,7 +7,7 @@ using Core;
 
 namespace Core.Repositories
 {
-    public interface IKorisnikRepository : IRepository<Igra, int>
+    public interface IKorisnikRepository : IRepository<Korisnik, int>
     {
         
     }

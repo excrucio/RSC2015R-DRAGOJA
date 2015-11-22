@@ -7,7 +7,7 @@ using Core;
 
 namespace Core.Repositories
 {
-    public interface ITimRepository : IRepository<Igra, int>
+    public interface ITimRepository : IRepository<Tim, int>
     {
     }
 }

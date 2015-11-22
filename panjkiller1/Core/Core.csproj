@@ -70,7 +70,7 @@
     <Compile Include="Repositories\IPreprekeRepository.cs" />
     <Compile Include="Repositories\ISuciRepository.cs" />
     <Compile Include="Repositories\ITimRepository.cs" />
-    <Compile Include="Repositories\ITimPripadnost.cs" />
+    <Compile Include="Repositories\ITimPripadnostRepository.cs" />
     <Compile Include="Repositories\IVrstaPreprekeRepository.cs" />
   </ItemGroup>
   <ItemGroup>

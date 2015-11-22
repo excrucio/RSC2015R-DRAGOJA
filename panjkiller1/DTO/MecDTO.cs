@@ -14,6 +14,7 @@ namespace DTO
         public bool aktivan { get; set; }
         public bool spreman { get; set; }
         public int maxBrojIgraca { get; set; }
-
+        public int PrviTimID { get; set; }
+        public int drugiTimID { get; set; }
     }
 }

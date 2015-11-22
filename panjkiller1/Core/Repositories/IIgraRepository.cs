@@ -9,10 +9,6 @@ namespace Core.Repositories
 {
     public interface IIgraRepository : IRepository<Igra, int>
     {
-        Mec GetMec(int IID);
-        Igra GetIgra(int IID);
-        IEnumerable<Tim> GetTimovi(int IID);
-        Tim GetPrviTim(int IID);
-        Tim GetDrugiTim(int IID);
+
     }
 }

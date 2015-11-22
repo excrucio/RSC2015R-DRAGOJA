@@ -50,10 +50,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IgracRepository.cs" />
+    <Compile Include="IgraRepository.cs" />
+    <Compile Include="KorisnikRepository.cs" />
     <Compile Include="MecRepository.cs" />
+    <Compile Include="PreprekeRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository.cs" />
+    <Compile Include="SuciRepository.cs" />
+    <Compile Include="TimPripadnostRepository.cs" />
+    <Compile Include="TimRepository.cs" />
     <Compile Include="UnitOfWork.cs" />
+    <Compile Include="VrstaPreprekeRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Core\Core.csproj">
